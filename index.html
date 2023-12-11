@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Criar senhas usando Diceware"/>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <title>Gerador de senhas usando método Diceware</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+
+    <script src="lists/special.js" integrity2="sha384-bWlPtpszg6ff0Z4tBQ/rn+w/gSyuIWPoo6FygsYKV20VXR0nvOXP4f3TMSaY/poB" crossorigin="anonymous"></script>
+    <script async src="lists/ptbr.js" integrity2="sha384-6JJZcWqkihCRQXrH0UtKejY0PkFd+bTx7yHuwp56kj21xVt9NTOG4yuDsHKlUAfX" crossorigin="anonymous"></script>
+    <script src="index.js" integrity2="sha384-SUNY7zJqdNDiQANozKPxesLEev5jyPq+sgdMmqG8phIo5xapmo8nggSZU8ZNkJQg" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+
+    </nav>
+
+    <div class="container-fluid">
+      <h4>Gerador de senha baseado em <a href="http://world.std.com/~reinhold/diceware.html" target="_blank" rel="noopener">Diceware</a></h4>
+<br/><br/>
+        <form>
+          <div class="mb-3 row">
+            <label for="group-words" class="form-label col-sm-3 col-form-label text-end">Quantidade de palavras</label>
+            <div class="col-sm-7">
+              <div class="btn-group" id="group-words" role="group" aria-label="Add random words group">
+                <input type="radio" name="btnWords" class="btn-check btnWords" id="btnWords5" value="5" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnWords5">5</label>
+                <input type="radio" name="btnWords" class="btn-check btnWords" id="btnWords6" value="6" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="btnWords6">6</label>
+                <input type="radio" name="btnWords" class="btn-check btnWords" id="btnWords7" value="7" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnWords7">7</label>
+                <input type="radio" name="btnWords" class="btn-check btnWords" id="btnWords8" value="8" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnWords8">8</label>
+                <input type="radio" name="btnWords" class="btn-check btnWords" id="btnWords9" value="9" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnWords9">9</label>
+                <input type="radio" name="btnWords" class="btn-check btnWords" id="btnWords10" value="10" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnWords10">10</label>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="group-numbers" class="form-label col-sm-3 col-form-label text-end">Quantidade de números</label>
+            <div class="col-sm-7">
+            <div class="btn-group" id="group-numbers" role="group" aria-label="Add random words group">
+              <input type="radio" name="btnNumbers" class="btn-check btnNumbers" id="btnNumbers0" value="0" autocomplete="off">
+              <label class="btn btn-outline-primary" for="btnNumbers0">0</label>
+              <input type="radio" name="btnNumbers" class="btn-check btnNumbers" id="btnNumbers1" value="1" autocomplete="off">
+              <label class="btn btn-outline-primary" for="btnNumbers1">1</label>
+              <input type="radio" name="btnNumbers" class="btn-check btnNumbers" id="btnNumbers2" value="2" autocomplete="off" checked>
+              <label class="btn btn-outline-primary" for="btnNumbers2">2</label>
+              <input type="radio" name="btnNumbers" class="btn-check btnNumbers" id="btnNumbers3" value="3" autocomplete="off">
+              <label class="btn btn-outline-primary" for="btnNumbers3">3</label>
+              <input type="radio" name="btnNumbers" class="btn-check btnNumbers" id="btnNumbers4" value="4" autocomplete="off">
+              <label class="btn btn-outline-primary" for="btnNumbers4">4</label>
+              <input type="radio" name="btnNumbers" class="btn-check btnNumbers" id="btnNumbers5" value="5" autocomplete="off">
+              <label class="btn btn-outline-primary" for="btnNumbers5">5</label>
+            </div>
+          </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="group-capitalize" class="form-label col-sm-3 col-form-label text-end">Usa maiúscula</label>
+            <div class="col-sm-7">
+              <div class="btn-group" id="group-capitalize" role="group" aria-label="Add random words group">
+                <input type="radio" name="btnCapitalize" class="btn-check btnSymbols" id="btnCapitalize0" value="0" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnCapitalize0">0</label>
+                <input type="radio" name="btnCapitalize" class="btn-check btnSymbols" id="btnCapitalize1" value="1" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnCapitalize1">1</label>
+                <input type="radio" name="btnCapitalize" class="btn-check btnSymbols" id="btnCapitalize2" value="2" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="btnCapitalize2">2</label>
+                <input type="radio" name="btnCapitalize" class="btn-check btnSymbols" id="btnCapitalize3" value="3" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnCapitalize3">3</label>
+                <input type="radio" name="btnCapitalize" class="btn-check btnSymbols" id="btnCapitalize4" value="4" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnCapitalize4">4</label>
+                <input type="radio" name="btnCapitalize" class="btn-check btnSymbols" id="btnCapitalize5" value="5" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnCapitalize5">5</label>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-7">
+              <button type="button" class="btn btn-outline-success" id="btnGenerate">Gerar</button>
+            </div>
+          </div>
+        </form>
+
+      <br />
+
+      <div id="generated" style="display: none;">
+        <div class="mb-3 row">
+          <div class="col-sm-3 col-form-label text-end">Palavras geradas</div>
+          <div class="col-sm-7">
+            <ul id="diceWords" class="list-inline list-group list-group-horizontal font-monospace"></ul>
+          </div>
+        </div>
+
+        <br />
+
+        <div class="mb-3 row pb-2">
+          <div class="col-sm-3 col-form-label text-end">
+            <button class="btn btn-outline-secondary btn-clipboard" data-clipboard-target="#diceWordsCopyableSpace" data-bs-toggle="tooltip" data-bs-trigger="click" data-bs-title="Copiado!">
+              Copiar <i class="bi bi-copy"></i>
+            </button>
+          </div>
+          <div class="col-sm-7 d-flex align-items-center">
+            <span class="font-monospace" id="diceWordsCopyableSpace"></span>
+          </div>
+        </div>
+
+        <div class="mb-3 row pb-2">
+          <div class="col-sm-3 col-form-label text-end">
+            <button class="btn btn-outline-secondary btn-clipboard" data-clipboard-target="#diceWordsCopyableDash" data-bs-toggle="tooltip" data-bs-trigger="click" data-bs-title="Copiado!">
+              Copiar <i class="bi bi-copy"></i>
+            </button>
+          </div>
+          <div class="col-sm-7 d-flex align-items-center">
+            <span class="font-monospace" id="diceWordsCopyableDash"></span>
+          </div>
+        </div>
+
+        <div class="mb-3 row pb-2">
+          <div class="col-sm-3 col-form-label text-end">
+            <button class="btn btn-outline-secondary btn-clipboard" data-clipboard-target="#diceWordsCopyableSymbol" data-bs-toggle="tooltip" data-bs-trigger="click" data-bs-title="Copiado!">
+              Copiar <i class="bi bi-copy"></i>
+            </button>
+          </div>
+          <div class="col-sm-7 d-flex align-items-center">
+            <span class="font-monospace" id="diceWordsCopyableSymbol"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
